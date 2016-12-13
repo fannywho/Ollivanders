@@ -166,6 +166,7 @@ figcaption {
 /* --------- ESHOP ----------- */
 
 div.eshop {
+<<<<<<< HEAD
     margin: 50px 50px;
 }
 
@@ -205,10 +206,17 @@ div.eshop {
 }
 
 .produit h2 {
+=======
+    margin: 50px 0;
+}
+
+.eshop h2 {
+>>>>>>> 7c5f0c3a0b3efe198ecb525206cd8208f9a0fe7a
     color: #000;
     font-family: 'Alegreya', serif;
     font-size: 30px;
     text-align: center;
+<<<<<<< HEAD
     margin-bottom: 30px;
 }
 
@@ -240,6 +248,8 @@ em {
 
 hr {
     border: 1px solid #000;
+=======
+>>>>>>> 7c5f0c3a0b3efe198ecb525206cd8208f9a0fe7a
 }
 
 /* --------- FOOTER -------*/
