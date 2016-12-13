@@ -86,10 +86,80 @@ float: left;
 margin-right: 10%;
 margin-top: 1%;
 text-decoration: none;
+font-size: 18px;
 }
 header nav.nav-header ul li a {
     text-decoration: none;
 	color: white;
+    font-weight: bold;
+}
+
+/* ----------- ACCUEIL ---------- */
+
+main{
+    font-family: 'Alegreya', serif;
+}
+#acceuil h1{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 31%;
+    font-size: 73px;
+    width: 481px;
+    line-height: 100%;
+}
+
+#acceuil img{
+    width: 100%;
+}
+
+section:nth-child(2){
+    padding: 20px;
+}
+
+section:nth-child(2) hr{
+    width: 900px;
+}
+
+article{
+    text-align: center;
+}
+
+article h1{
+    font-size: 43px;
+    color: #000;
+}
+
+article p {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+
+main{
+    width: 100%;
+    margin: 0 auto;
+}
+
+figure{
+    padding: 10px;
+}
+
+figcaption{
+    width: 621px;
+    float: right;
+}
+
+figcaption {
+    font-size: 20px;
+    font-family: 'Alegreya', serif;
+    margin-top: 5%;
+}
+
+
+.facade{
+    width: 48%;
+    margin-left: 20px;
 }
 
 /* --------- FOOTER -------*/
