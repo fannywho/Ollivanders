@@ -162,6 +162,20 @@ figcaption {
     margin-left: 20px;
 }
 
+
+/* --------- ESHOP ----------- */
+
+div.eshop {
+    margin: 50px 0;
+}
+
+.eshop h2 {
+    color: #000;
+    font-family: 'Alegreya', serif;
+    font-size: 30px;
+    text-align: center;
+}
+
 /* --------- FOOTER -------*/
 
 footer{
