@@ -162,6 +162,86 @@ figcaption {
     margin-left: 20px;
 }
 
+
+/* --------- ESHOP ----------- */
+
+div.eshop {
+    margin: 50px 50px;
+}
+
+.eshop h2 {
+    color: #000;
+    font-family: 'Alegreya', serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.eshop img {
+    width: 300px;
+}
+
+.eshop ul {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.eshop li {
+    width: 30%;
+    display: inline-block;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.eshop h3 {
+    font-weight: bold;
+}
+
+/* --------- PRODUIT ------- */
+
+.produit {
+    width:  65%;
+    margin: 50px auto;
+    font-size: 20px;
+}
+
+.produit h2 {
+    color: #000;
+    font-family: 'Alegreya', serif;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.produit img {
+    float: left;
+}
+
+.produit .detail {
+    width: 40%;
+    line-height: 150%;
+    float: right;
+}
+
+.produit .detail h3 {
+    font-weight: bold;
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
+em {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.produit img.panier {
+    width: 200px;
+}
+
+hr {
+    border: 1px solid #000;
+}
+
 /* --------- FOOTER -------*/
 
 footer{
