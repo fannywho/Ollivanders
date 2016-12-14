@@ -1,5 +1,5 @@
 <?php
-require 'header.html';
+require 'header.php';
 ?>
 <?php
 require_once 'connect.php';
@@ -9,8 +9,25 @@ $id = $_GET['id'];
 $products = $pdo->query("SELECT * FROM `product` WHERE id = $id");
 $p = $products->fetch();
 ?>
+
+
+<?php
+
+if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
+    $recherche = htmlspecialchars($_GET['recherche']);
+    $produit = $pdo->query('SELECT * FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
+    if ($produit->rowCount() == 0) {
+        $produit = $pdo->query('SELECT * FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
+    }
+}
+?>
+
 <div class="produit clearfix">
     <h2>Produit</h2>
+    <form method="GET" action="search.php">
+        <input type="search" name="recherche" placeholder="Recherche..." class="recherche"/>
+        <input type="submit" value="Valider" class ="valider"/>
+    </form>
     <hr>
 
     <img src="baguettes/<?= $p['image'] ?>">
@@ -24,10 +41,10 @@ $p = $products->fetch();
         <br>
         <br><strong>Prix :</strong> <?= $p['prix'] ?>
         <br>
-        <a href="#"><img src="img-layout/cauldron-button.png" class="panier"></a>
+        <a href="panier.php"><img src="img-layout/cauldron-button.png" class="panier"></a>
     </div>
 </div>
 <?php
-require 'footer.html';
+require 'footer.php';
 ?>
 

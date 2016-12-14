@@ -197,7 +197,12 @@ section.info-pratique div{
 /* --------- ESHOP ----------- */
 
 .eshop {
-    padding: 50px;
+    padding: 50px 50px 0 50px;
+}
+
+.eshop a {
+    text-decoration: none;
+    color: #000;
 }
 
 .eshop hr {
@@ -230,6 +235,33 @@ section.info-pratique div{
 
 .eshop h3 {
     font-weight: bold;
+}
+
+.eshop form {
+    width: 100%;
+    text-align: center;
+}
+
+.recherche {
+    width: 300px;
+    height: 25px;
+}
+
+.valider {
+    background: #000;
+    padding: 5px 10px;
+    color: #fff;
+    border: 0;
+}
+
+.pagination {
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.pagination a {
+    letter-spacing: 50px;
 }
 
 /* --------- PRODUIT ------- */
@@ -292,6 +324,22 @@ em {
 
 hr {
     border: 1px solid #000;
+}
+
+.produit .recherche {
+    width: 300px;
+    height: 25px;
+}
+
+.produit .valider {
+    background: #000;
+    padding: 5px 10px;
+    color: #fff;
+    border: 0;
+}
+
+.produit form {
+    text-align: center;
 }
 
 /* --------- FOOTER -------*/
@@ -415,4 +463,18 @@ h2:after {
 
 .chaudron img.acheter {
     margin-top: 150px;
+}
+
+/* ----- RECHERCHE ------- */
+
+.no-result {
+    text-align: center;
+    font-size: 20px;
+     line-height: 150px;
+    padding-bottom: 50px;
+}
+
+.no-result .jsp {
+    font-size: 250px;
+    line-height: 250px;
 }

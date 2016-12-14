@@ -1,36 +1,55 @@
 <?php
-require 'header.html';
+require 'header.php';
 ?>
 <?php
 require_once 'connect.php';
-// Affiche la liste de tous les produits par rapport à leur ID
-$products = $pdo->query('SELECT * FROM `product`');
-// Verifie si la donnée GET récuperée dans l'url EXISTE et N'EST PAS VIDE
-if (isset($_GET['supprime']) AND !empty($_GET['supprime'])) {
-    //Si la condition est vraie, stock la valeure de la donnée GET dans $supprime
-    $supprime = (int) $_GET['supprime'];
-    // Prépare la requete Mysql qui est stocké dans une variable req
-    $req = $pdo->prepare('DELETE FROM `product` WHERE id = ?');
-    // Execute la requete
-    $req->execute(array($supprime));
-}
 
+// Pagination sql
+
+$page = isset($_GET['page']) ?  (int)$_GET['page'] : 1;
+$perPage = isset($_GET['per-page']) && $_GET['per-page'] <=50 ? (int)$_GET['per-page'] : 6;
+
+// Positionnement
+
+$start = ($page > 1) ? ($page * $perPage) - $perPage  : 0;
+
+// Requete
+$products = $pdo->prepare("SELECT SQL_CALC_FOUND_ROWS  `id`,`titre`,`image`, `prix` FROM product LIMIT {$start},{$perPage}");
+
+$products->execute();
+
+$products = $products->fetchAll(PDO::FETCH_ASSOC);
+
+// Pages
+$total = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+$pages = ceil($total / $perPage);
 ?>
+
 <div class="eshop">
     <h2>Boutique</h2>
+    <form method="GET" action="search.php">
+        <input type="search" name="recherche" placeholder="Recherche..." class="recherche"/>
+        <input type="submit" value="Valider" class ="valider"/>
+    </form>
     <hr>
     <ul>
-        <?php while($p = $products->fetch()) { ?>
+        <?php foreach ($products as $products):  ?>
             <li>
-                <a href="produit.php?id=<?= $p['id'] ?>"><img src="baguettes/<?= $p['image'] ?>"></a> 
-                <br> <h3><?= $p['titre'] ?></h3>
-                <br> <?= $p['prix'] ?>
+                <a href="produit.php?id=<?= $products['id'] ?>"><img src="baguettes/<?= $products['image'] ?>"></a>
+                <br> <h3><a href="produit.php?id=<?= $products['id'] ?>"><?php echo $products['titre'];?></a></h3>
+                <br> <?php echo $products['prix'];?>
+
                 </li>
-       <?php } ?>
+        <?php endforeach; ?>
     </ul>
     <hr>
+    <div class="pagination">
+    <?php for($x = 1; $x <= $pages; $x++):  ?>
+        <a href="?page=<?php echo $x;?>$per-page=<?php echo $perPage; ?>" <?php if($page == $x){ echo 'selected'; } ?>><?php echo $x; ?></a>
+    <?php endfor; ?>
+</div>
 </div>
 <?php
-require 'footer.html';
+require 'footer.php';
 ?>
 
