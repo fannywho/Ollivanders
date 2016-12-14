@@ -16,19 +16,19 @@ if (isset($_GET['supprime']) AND !empty($_GET['supprime'])) {
 }
 
 ?>
-
 <div class="eshop">
-<h2>Boutique</h2>
-<ul>
-    <?php while($p = $products->fetch()) { ?>
-        <li>
-            <a href="produit.php?id=<?= $p['id'] ?>"><img src="baguettes/<?= $p['image'] ?>"></a> 
-            <br> <h3><?= $p['titre'] ?></h3>
-            <br> <?= $p['prix'] ?>
-            <br> <a href="index.php?supprime=<?= $p['id'] ?>">Supprimer</a>
-            </li>
-   <?php } ?>
-</ul>
+    <h2>Boutique</h2>
+    <hr>
+    <ul>
+        <?php while($p = $products->fetch()) { ?>
+            <li>
+                <a href="produit.php?id=<?= $p['id'] ?>"><img src="baguettes/<?= $p['image'] ?>"></a> 
+                <br> <h3><?= $p['titre'] ?></h3>
+                <br> <?= $p['prix'] ?>
+                </li>
+       <?php } ?>
+    </ul>
+    <hr>
 </div>
 <?php
 require 'footer.html';

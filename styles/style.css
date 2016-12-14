@@ -51,21 +51,34 @@ body {
 	font-family:'arial','helvetica','sans-serif';
 }
 
+.clearfix:before,
+.clearfix:after {
+    content: '';
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+
 /* ------- HEADER ---------*/
+
 header {
 	width: 100%;
-	height: 120px;	
+    background-color: #292017;	
 }
-.header {
-	background-color: #403f3f;
-}
+
 h1 {
-	font-family:'rochester';
+	font-family:'Rochester';
 	font-size: 60px;
 	padding: 20px;
 	color: white;
 	text-align: center;
 }
+
+h1 a {
+    color: #fff;
+}
+
 nav.nav-header {
 	background-color: black;
 	width:100%;
@@ -73,22 +86,35 @@ nav.nav-header {
 	font-family:'Alegreya';
 	font-size: 15px;
 }
-.picto {
-	float: right;
-    width: 50px;
-	margin-right: 50px;
-	margin-top: 15px;
+
+nav.nav-header a:hover,
+header h1 a:hover {
+    color: #FFDFB4;
 }
+
+div.pictos {
+    float: right;
+    margin-top: 10px;
+}
+
+header a img {
+    width: 30px;
+    margin-right: 50px;
+}
+
 header nav.nav-header ul {
 	margin-left: 25%;
 }
+
 header nav.nav-header ul li {
 float: left;
 margin-right: 10%;
 margin-top: 1%;
 text-decoration: none;
 font-size: 18px;
+text-transform: uppercase;
 }
+
 header nav.nav-header ul li a {
     text-decoration: none;
 	color: white;
@@ -97,77 +123,87 @@ header nav.nav-header ul li a {
 
 /* ----------- ACCUEIL ---------- */
 
-main{
+main {
     font-family: 'Alegreya', serif;
+    background: #eee;
+    width: 100%;
+    margin: 0 auto;
 }
-#acceuil h1{
+
+a {
+    text-decoration: none;
+}
+
+#acceuil h1 {
     text-align: center;
     position: absolute;
     top: 50%;
     left: 31%;
-    font-size: 73px;
-    width: 481px;
-    line-height: 100%;
+    font-size: 90px;
+    line-height: 59%;
+    font-family: 'Cormorant Garamond', serif;
 }
 
-#acceuil img{
+#acceuil img {
     width: 100%;
 }
 
-section:nth-child(2){
-    padding: 20px;
-}
-
-section:nth-child(2) hr{
-    width: 900px;
-}
-
-article{
+article {
     text-align: center;
 }
 
-article h1{
-    font-size: 43px;
+article h1 {
+    font-size: 40px;
     color: #000;
 }
 
 article p {
     font-size: 20px;
-    line-height: 30px;
+    line-height: 200%;
 }
 
-
-main{
-    width: 100%;
-    margin: 0 auto;
+.histoire article hr {
+    margin: 10px 0;
 }
 
-figure{
-    padding: 10px;
+section.histoire,
+section.info-pratique {
+    padding: 50px;
 }
 
-figcaption{
-    width: 621px;
+.histoire article div {
+    margin: 50px 0;
+}
+
+.histoire q {
+    font-style: italic;
+    font-size: 20px;
+    line-height: 200%;
+}
+
+section.info-pratique div{
+    width: 40%;
     float: right;
-}
-
-figcaption {
     font-size: 20px;
     font-family: 'Alegreya', serif;
-    margin-top: 5%;
+    line-height: 200%;
 }
 
-
 .facade{
-    width: 48%;
-    margin-left: 20px;
+    width: 50%;
 }
 
 
 /* --------- ESHOP ----------- */
 
-div.eshop {
-    margin: 50px 50px;
+.eshop {
+    padding: 50px;
+}
+
+.eshop hr {
+    width: 81%;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .eshop h2 {
@@ -182,7 +218,6 @@ div.eshop {
 }
 
 .eshop ul {
-    margin: 50px 0;
     text-align: center;
 }
 
@@ -201,8 +236,14 @@ div.eshop {
 
 .produit {
     width:  65%;
-    margin: 50px auto;
     font-size: 20px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.produit hr {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .eshop h2,
@@ -222,7 +263,7 @@ div.eshop {
 
 .produit .detail {
     width: 40%;
-    line-height: 150%;
+    line-height: 100%;
     float: right;
 }
 
@@ -234,14 +275,19 @@ div.eshop {
     margin-top: 20px;
 }
 
-em {
+strong {
     text-transform: uppercase;
     font-weight: bold;
 }
 
+em {
+    font-size: 15px;
+}
+
 .produit img.panier {
     width: 200px;
-    margin-top: 20px;
+    margin-top: 100px;
+    margin-left: 100px;
 }
 
 hr {
@@ -251,18 +297,21 @@ hr {
 /* --------- FOOTER -------*/
 
 footer{
-    background-color: #403f3f;
+    background-color: #292017;
     width: 100%;
     box-sizing:border-box;
     font-family:'Alegreya';
     font-size : 15px;
     display: table;
     color: #fff;
+    border-top: 10px solid #000;
 }
 
 footer h2 {
 	font-size: 18px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
 }
 
 footer a {
@@ -272,28 +321,98 @@ footer a {
 
 footer nav ul {
 	display: block;
+    margin-bottom: 15px;
 }
 
 footer nav ul li {
-	padding: 10px;
-	box-sizing: border-box;
+    line-height: 200%;
 }
 
 .col33 {
 	width: 33%;
 	display: table-cell;
-	padding: 20px;
+	padding-top: 10px;
 	box-sizing: border-box;
 	text-align: center;
 }
 
-footer img {
-	padding: 20px;
+.livraison img {
+    margin: 10px 80px 0 0;
+    width: 70px;
 }
+.livraison img:last-child {
+    margin-right: 0;
+}
+
+.social a {
+    margin-right: 20px;
+}
+
+.social a img {
+    width: 50px;
+}
+
+.social a:last-child {
+    margin-right: 0;
+}
+
 
 h2:before {
 	content: "~";
 }
 h2:after {
 	content: "~";
+}
+
+/* -------- PANIER -------- */
+.chaudron {
+    margin: 0 auto;
+    font-family: 'alegreya';
+    padding: 50px;
+}
+
+.chaudron h2 {
+    font-size: 30px;
+    font-family: 'alegreya';
+    text-align: center;
+}
+
+.chaudron hr {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid #000;
+}
+
+.chaudron p {
+    text-align: center;
+    line-height: 24px;
+}
+
+.description {
+    float: left;
+    width: 30%;
+        margin-left: 100px;
+}
+
+.description h3 {
+    font-size: 25px;
+    font-family: 'alegreya';
+    text-align: center;
+    line-height: 50px;
+}
+
+.chaudron .quantite {
+    float: left; 
+    width: 30%;   
+}
+
+.chaudron img {
+    width: 20%;
+    display: block;
+    float: left;
+    margin-left: 100px
+}
+
+.chaudron img.acheter {
+    margin-top: 150px;
 }
