@@ -1,9 +1,9 @@
 <?php
-require 'header.html';
+require 'header.php';
 ?>
 <?php
 require 'accueil.html';
 ?>
 <?php
-require 'footer.html';
+require 'footer.php';
 ?>
