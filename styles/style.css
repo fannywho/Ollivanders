@@ -75,6 +75,7 @@ nav.nav-header {
 }
 .picto {
 	float: right;
+    width: 50px;
 	margin-right: 50px;
 	margin-top: 15px;
 }
@@ -166,7 +167,6 @@ figcaption {
 /* --------- ESHOP ----------- */
 
 div.eshop {
-<<<<<<< HEAD
     margin: 50px 50px;
 }
 
@@ -205,23 +205,19 @@ div.eshop {
     font-size: 20px;
 }
 
+.eshop h2,
 .produit h2 {
-=======
-    margin: 50px 0;
-}
-
-.eshop h2 {
->>>>>>> 7c5f0c3a0b3efe198ecb525206cd8208f9a0fe7a
     color: #000;
     font-family: 'Alegreya', serif;
     font-size: 30px;
     text-align: center;
-<<<<<<< HEAD
     margin-bottom: 30px;
 }
 
 .produit img {
     float: left;
+    width: 50%;
+    margin-bottom: 20px;
 }
 
 .produit .detail {
@@ -235,6 +231,7 @@ div.eshop {
     font-size: 30px;
     text-transform: uppercase;
     line-height: 30px;
+    margin-top: 20px;
 }
 
 em {
@@ -244,12 +241,11 @@ em {
 
 .produit img.panier {
     width: 200px;
+    margin-top: 20px;
 }
 
 hr {
     border: 1px solid #000;
-=======
->>>>>>> 7c5f0c3a0b3efe198ecb525206cd8208f9a0fe7a
 }
 
 /* --------- FOOTER -------*/

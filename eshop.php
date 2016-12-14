@@ -19,21 +19,14 @@ if (isset($_GET['supprime']) AND !empty($_GET['supprime'])) {
 
 <div class="eshop">
 <h2>Boutique</h2>
-
 <ul>
     <?php while($p = $products->fetch()) { ?>
-<<<<<<< HEAD
         <li>
-            <a href="produit.php?id=<?= $p['id'] ?>">
-                <img src="baguettes/<?= $p['image'] ?>">
-            </a> 
+            <a href="produit.php?id=<?= $p['id'] ?>"><img src="baguettes/<?= $p['image'] ?>"></a> 
             <br> <h3><?= $p['titre'] ?></h3>
             <br> <?= $p['prix'] ?>
             <br> <a href="index.php?supprime=<?= $p['id'] ?>">Supprimer</a>
             </li>
-=======
-        <li><?= $p['id'] ?> : <?= $p['titre'] ?> : <?= $p['description'] ?> : <?= $p['bois'] ?> : <?= $p['coeur'] ?> : <?= $p['prix'] ?> - <a href="index.php?supprime=<?= $p['id'] ?>">Supprimer</a></li>
->>>>>>> 7c5f0c3a0b3efe198ecb525206cd8208f9a0fe7a
    <?php } ?>
 </ul>
 </div>
