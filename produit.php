@@ -11,7 +11,7 @@ $p = $products->fetch();
 ?>
 
 <div class="produit">
-    <h2>Boutique</h2>
+    <h2>Produit</h2>
 
     <img src="baguettes/<?= $p['image'] ?>">
     <div class="detail">
@@ -25,7 +25,7 @@ $p = $products->fetch();
         <br> <em>Prix :</em> <?= $p['prix'] ?>
         <br>
         <hr>
-        <a href="#"><img src="img-layout/cauldron-button.svg" class="panier"></a>
+        <a href="#"><img src="img-layout/cauldron-button.png" class="panier"></a>
     </div>
 </div>
 <?php
