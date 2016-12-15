@@ -1,7 +1,4 @@
-
-<?php
-
-require_once "connect.php";
+<?php require_once "connect.php";
 
 // Verifie l'éxistence de la variable fichier
 if(isset($_FILES['fichier']) AND !empty($_FILES['fichier'] ['name'])){

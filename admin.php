@@ -1,6 +1,4 @@
-<?php
-require_once 'connect.php';
-
+<?php require_once 'connect.php';
 require 'header.php';
 // Affiche la liste de tous les produits par rapport à leur ID
 

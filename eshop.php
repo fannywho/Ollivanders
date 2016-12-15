@@ -1,7 +1,4 @@
-<?php
-require 'header.php';
-?>
-<?php
+<?php require 'header.php';
 require_once 'connect.php';
 
 // Pagination sql
@@ -52,7 +49,6 @@ $pages = ceil($total / $perPage);
             <?php endfor; ?>
 </div>
 </div>
-<?php
-require 'footer.php';
+<?php require 'footer.php';
 
 

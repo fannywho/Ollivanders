@@ -1,9 +1,6 @@
-<?php
-require_once 'connect.php'; ?>
+<?php require_once 'connect.php';
+require 'header.php';
 
-<?php
-require 'header.php'; ?>
-<?php
 // Pagination sql
 
 $page = isset($_GET['page']) ?  (int)$_GET['page'] : 1;
@@ -63,5 +60,4 @@ if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
     } ?>
 </div>
 
-<?php
-require 'footer.php';
+<?php require 'footer.php';
