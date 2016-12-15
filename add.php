@@ -1,6 +1,4 @@
-<?php
-// La connexion à la base de donnée est requis
-require_once 'connect.php';
+<?php require_once 'connect.php';
 
 require 'header.php';
 

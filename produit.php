@@ -1,7 +1,4 @@
-<?php
-require 'header.php';
-?>
-<?php
+<?php require 'header.php';
 require_once 'connect.php';
 
 // Affiche le produit par rapport à son ID récupéré dans l'url
@@ -46,7 +43,6 @@ if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
         <a href="panier.php"><img src="img-layout/cauldron-button.png" class="panier"></a>
     </div>
 </div>
-<?php
-require 'footer.php';
+<?php require 'footer.php';
 
 
