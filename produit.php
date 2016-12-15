@@ -6,18 +6,20 @@ require_once 'connect.php';
 
 // Affiche le produit par rapport à son ID récupéré dans l'url
 $id = $_GET['id'];
-$products = $pdo->query("SELECT titre, image,description, coeur, longueur, prix FROM `product` WHERE id = $id");
+$products = $pdo->query("SELECT titre, image,description,bois, coeur, longueur, prix FROM `product` WHERE id = $id");
 $p = $products->fetch();
 ?>
 
 
 <?php
-
+// Vérifie si le champ recherche existe et si il est différent de vide
 if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
+    // Empeche l'insertion d'HTML dans le champ recherche
     $recherche = htmlspecialchars($_GET['recherche']);
-    $produit = $pdo->query('SELECT titre, image,description, coeur, longueur, prix FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
+    // Execute la requete
+    $produit = $pdo->query('SELECT titre, image,description,bois, coeur, longueur, prix FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
     if ($produit->rowCount() == 0) {
-        $produit = $pdo->query('SELECT titre, image,description, coeur, longueur, prix FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
+        $produit = $pdo->query('SELECT titre, image,description,bois, coeur, longueur, prix FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
     }
 }
 ?>
@@ -37,7 +39,7 @@ if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
         <br>
         <br><em><strong>Bois :</strong> <?= $p['bois'] ?></em>
         <br><em><strong>Coeur :</strong> <?= $p['coeur'] ?></em>
-        <br><em><strong>Longueur :</strong> <?= $p['longueur'] ?></em>
+        <br><em><strong>Longueur :</strong> <?= $p['longueur'] ?> cm</em>
         <br>
         <br><strong>Prix :</strong> <?= $p['prix'] ?>
         <br>
@@ -46,5 +48,5 @@ if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
 </div>
 <?php
 require 'footer.php';
-?>
+
 

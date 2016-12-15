@@ -15,26 +15,28 @@ $prix = $_POST['prix'];
 
 
 // Verifie l'éxistence des variables récuperés en post via le formulaire
-if (isset($_POST['titre']) && ($_POST['description']) && ($_POST['bois']) && ($_POST['coeur']) && ($_POST['prix'])&& ($_POST['longueur'])) {
-
+if (isset($_POST['titre']) && ($_POST['description']) && ($_POST['bois']) && ($_POST['coeur']) && ($_POST['prix']) && ($_POST['longueur'])) {
+// Verifie si le champ fichier (input file ) existe et si il est différent de vide
     if(isset($_FILES['fichier']) AND !empty($_FILES['fichier'] ['name'])){
-
+    //Stock la taille maximum du fichier reçu
         $tailleMax = 2097152;
+        // Verifie si le fichier envoyé possède le bon format
         $extensionValides = array('jpg', 'jpeg', 'gif', 'png');
-
+        // Verifie si le fichier ne dépasse pas la taille maximum
         if($_FILES['fichier']['size'] <= $tailleMax){
-
+            // Force les caractères de l'image en minuscule sans espace
             $extensionUpload = strtolower(substr(strrchr($_FILES['fichier']['name'],'.'),1));
 
             if(in_array($extensionUpload, $extensionValides)){
-
+                // Stock le chemin du dossier images dans une variable
                 $chemin = "baguettes/" .$_FILES['fichier']['name'];
+                // Déplace le fichier envoyé dans le dossier baguette
                 $resultat = move_uploaded_file($_FILES['fichier']['tmp_name'],$chemin);
 
                 if($resultat){
-                    // Requete insert stocké dans la variable sql
-                    $updatefichier = $pdo -> prepare('INSERT INTO product(id, titre, image, description, bois, coeur, prix) VALUES (?,?,?,?,?,?,?)');
-                    $updatefichier -> execute(array(NULL, $titre, $_FILES['fichier']['name'], $des, $bois, $coeur, $prix ));
+                    // Préparation de la requete
+                    $updatefichier = $pdo -> prepare('INSERT INTO product(id, titre, image, description, bois, coeur, longueur, prix) VALUES (?,?,?,?,?,?,?,?)');
+                    $updatefichier -> execute(array(NULL, $titre, $_FILES['fichier']['name'], $des, $bois, $coeur, $longueur,$prix ));
                     $msg="votre fichier a bien été reçu";
                     // Redirrection vers index.php si le script c'est bien éxécuter
                     header ('Location: admin.php');
@@ -76,7 +78,7 @@ if (isset($_POST['titre']) && ($_POST['description']) && ($_POST['bois']) && ($_
 
 <p><a href="admin.php" class="button">Retourner à l'accueil</a></p> <br>
 
-<form action="update.php" method="post"  enctype="multipart/form-data">
+<form action="add.php" method="post"  enctype="multipart/form-data">
 
     <p><label for="titre">Titre</label> <br> <input type="text" name="titre" /></p>
     <p><label for="description">Description</label> <br> <input type="text" name="description" /></p>
@@ -91,5 +93,4 @@ if (isset($_POST['titre']) && ($_POST['description']) && ($_POST['bois']) && ($_
 </form>
 </div>
 
-<?php require 'footer.php'; ?>
-
+<?php require 'footer.php';
