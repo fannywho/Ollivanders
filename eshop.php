@@ -20,7 +20,7 @@ $products->execute();
 
 $products = $products->fetchAll(PDO::FETCH_ASSOC);
 
-// Pages
+// Gère l'affichage des pages de la pagination
 $total = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
 $pages = ceil($total / $perPage);
 ?>
@@ -33,7 +33,9 @@ $pages = ceil($total / $perPage);
     </form>
     <hr>
     <ul>
-        <?php foreach ($products as $products):  ?>
+        <?php
+        // Fait une boucle pour afficher les produits
+        foreach ($products as $products):  ?>
             <li>
                 <a href="produit.php?id=<?= $products['id'] ?>"><img src="baguettes/<?= $products['image'] ?>"></a>
                 <br> <h3><a href="produit.php?id=<?= $products['id'] ?>"><?php echo $products['titre'];?></a></h3>
@@ -44,12 +46,13 @@ $pages = ceil($total / $perPage);
         </ul>
         <hr>
         <div class="pagination">
-            <?php for($x = 1; $x <= $pages; $x++):  ?>
+            <?php // Fait une boucle pour afficher le numéro des pages de pagination
+            for($x = 1; $x <= $pages; $x++):  ?>
                 <a href="?page=<?php echo $x;?>$per-page=<?php echo $perPage; ?>" <?php if($page == $x){ echo 'selected'; } ?>><?php echo $x; ?></a>
             <?php endfor; ?>
 </div>
 </div>
 <?php
 require 'footer.php';
-?>
+
 

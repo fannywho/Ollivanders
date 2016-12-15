@@ -3,7 +3,7 @@
 require_once "connect.php";
 
 require 'header.php';
-
+// Execute la requète qui selectionne toutes les données de la bdd
 $sql = "SELECT `id`, `titre`, `image`, `description`, `bois`, `coeur`,`longueur`,`prix` FROM `product` WHERE id = :id";
 
 $stmt = $pdo->prepare($sql);
@@ -21,7 +21,7 @@ if(false == $row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
 ?>
 
-<h1 style="color: #333;">Editez votre formulaire</h1>
+<h1 style="color:black;">Editez votre formulaire</h1>
 
 <div class="ajouter">
 <p><a href="admin.php" class="button">Retourner à l'accueil</a></p> <br>
@@ -51,4 +51,4 @@ if(false == $row = $stmt->fetch(PDO::FETCH_ASSOC)){
 </form>
 </div>
 
-<?php   require 'footer.php'; ?>
+<?php   require 'footer.php';

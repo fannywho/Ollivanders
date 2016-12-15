@@ -3,7 +3,6 @@ require_once 'connect.php';
 
 require 'header.php';
 // Affiche la liste de tous les produits par rapport à leur ID
-//$products = $pdo->query('SELECT * FROM `product`WHERE confirm = 1');
 
 $products = $pdo->query('SELECT `id`, `titre`, `image`, `prix`, `confirm` FROM `product` ORDER BY id DESC');
 
@@ -43,7 +42,7 @@ if (isset($_GET['confirm_not']) AND !empty($_GET['confirm_not'])) {
         <h1>Page d'administration</h1>
 
         <div class="admin-button">
-            <a href="update.php" class="button">Ajouter un nouveau produit</a>
+            <a href="add.php" class="button">Ajouter un nouveau produit</a>
             <a href="eshop.php" class="button">Retour à la Boutique</a>
         </div>
                 <ul>
@@ -70,4 +69,4 @@ if (isset($_GET['confirm_not']) AND !empty($_GET['confirm_not'])) {
 
 
 
-<?php require 'footer.php';  ?>
+<?php require 'footer.php';

@@ -23,12 +23,15 @@ $products = $products->fetchAll(PDO::FETCH_ASSOC);
 $total = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
 $pages = ceil($total / $perPage);
 
-
+// Vérifie si le champ recherche existe et si il est différent de vide
 if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
+    // Empeche l'insertion d'HTML dans le champ recherche
     $recherche = htmlspecialchars($_GET['recherche']);
-    $produit = $pdo->query('SELECT titre, image, prix FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
+
+    // Execute la requete
+    $produit = $pdo->query('SELECT id, titre, image, prix FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
     if ($produit->rowCount() == 0) {
-        $produit = $pdo->query('SELECT titre, image, prix  FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
+        $produit = $pdo->query('SELECT id, titre, image, prix  FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
     }
 }
 ?>
@@ -61,4 +64,4 @@ if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
 </div>
 
 <?php
-require 'footer.php'; ?>
+require 'footer.php';
