@@ -14,7 +14,7 @@ $perPage = isset($_GET['per-page']) && $_GET['per-page'] <=50 ? (int)$_GET['per-
 $start = ($page > 1) ? ($page * $perPage) - $perPage  : 0;
 
 // Requete
-$products = $pdo->prepare("SELECT SQL_CALC_FOUND_ROWS  `id`,`titre`,`image`, `prix` FROM product LIMIT {$start},{$perPage}");
+$products = $pdo->prepare("SELECT SQL_CALC_FOUND_ROWS  `id`,`titre`,`image`, `prix` FROM product WHERE confirm = 1 ORDER BY id DESC LIMIT {$start},{$perPage}");
 
 $products->execute();
 
@@ -39,14 +39,14 @@ $pages = ceil($total / $perPage);
                 <br> <h3><a href="produit.php?id=<?= $products['id'] ?>"><?php echo $products['titre'];?></a></h3>
                 <br> <?php echo $products['prix'];?>
 
-                </li>
+            </li>
         <?php endforeach; ?>
-    </ul>
-    <hr>
-    <div class="pagination">
-    <?php for($x = 1; $x <= $pages; $x++):  ?>
-        <a href="?page=<?php echo $x;?>$per-page=<?php echo $perPage; ?>" <?php if($page == $x){ echo 'selected'; } ?>><?php echo $x; ?></a>
-    <?php endfor; ?>
+        </ul>
+        <hr>
+        <div class="pagination">
+            <?php for($x = 1; $x <= $pages; $x++):  ?>
+                <a href="?page=<?php echo $x;?>$per-page=<?php echo $perPage; ?>" <?php if($page == $x){ echo 'selected'; } ?>><?php echo $x; ?></a>
+            <?php endfor; ?>
 </div>
 </div>
 <?php
