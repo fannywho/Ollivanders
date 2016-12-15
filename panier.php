@@ -1,5 +1,5 @@
 <?php
-require 'header.html';
+require 'header.php';
 ?>
 <div class="chaudron clearfix">
 	<h2>Votre panier</h2>
@@ -32,5 +32,5 @@ require 'header.html';
 	<a href="#"><img src="img-layout/cauldron-button.png" class="acheter"></a>
 </div>
 <?php
-require 'footer.html';
+require 'footer.php';
 ?>

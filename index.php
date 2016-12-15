@@ -2,7 +2,7 @@
 require 'header.php';
 ?>
 <?php
-require 'accueil.html';
+require 'accueil.php';
 ?>
 <?php
 require 'footer.php';

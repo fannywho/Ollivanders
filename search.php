@@ -4,6 +4,26 @@ require_once 'connect.php'; ?>
 <?php
 require 'header.php'; ?>
 <?php
+// Pagination sql
+
+$page = isset($_GET['page']) ?  (int)$_GET['page'] : 1;
+$perPage = isset($_GET['per-page']) && $_GET['per-page'] <=50 ? (int)$_GET['per-page'] : 6;
+
+// Positionnement
+
+$start = ($page > 1) ? ($page * $perPage) - $perPage  : 0;
+
+// Requete
+$products = $pdo->prepare("SELECT SQL_CALC_FOUND_ROWS  `id`,`titre`,`image`, `prix` FROM product LIMIT {$start},{$perPage} LIKE \"%' . $recherche . '%\" ORDER BY id DESC");
+
+$products->execute();
+
+$products = $products->fetchAll(PDO::FETCH_ASSOC);
+
+// Pages
+$total = $pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+$pages = ceil($total / $perPage);
+
 
 if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
     $recherche = htmlspecialchars($_GET['recherche']);
