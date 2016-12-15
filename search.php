@@ -17,7 +17,6 @@ $start = ($page > 1) ? ($page * $perPage) - $perPage  : 0;
 $products = $pdo->prepare("SELECT SQL_CALC_FOUND_ROWS  `id`,`titre`,`image`, `prix` FROM product LIMIT {$start},{$perPage} LIKE \"%' . $recherche . '%\" ORDER BY id DESC");
 
 $products->execute();
-
 $products = $products->fetchAll(PDO::FETCH_ASSOC);
 
 // Pages
@@ -27,9 +26,9 @@ $pages = ceil($total / $perPage);
 
 if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
     $recherche = htmlspecialchars($_GET['recherche']);
-    $produit = $pdo->query('SELECT * FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
+    $produit = $pdo->query('SELECT titre, image, prix FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
     if ($produit->rowCount() == 0) {
-        $produit = $pdo->query('SELECT * FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
+        $produit = $pdo->query('SELECT titre, image, prix  FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
     }
 }
 ?>

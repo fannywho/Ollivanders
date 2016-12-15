@@ -6,7 +6,7 @@ require_once 'connect.php';
 
 // Affiche le produit par rapport à son ID récupéré dans l'url
 $id = $_GET['id'];
-$products = $pdo->query("SELECT * FROM `product` WHERE id = $id");
+$products = $pdo->query("SELECT titre, image,description, coeur, longueur, prix FROM `product` WHERE id = $id");
 $p = $products->fetch();
 ?>
 
@@ -15,9 +15,9 @@ $p = $products->fetch();
 
 if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
     $recherche = htmlspecialchars($_GET['recherche']);
-    $produit = $pdo->query('SELECT * FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
+    $produit = $pdo->query('SELECT titre, image,description, coeur, longueur, prix FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
     if ($produit->rowCount() == 0) {
-        $produit = $pdo->query('SELECT * FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
+        $produit = $pdo->query('SELECT titre, image,description, coeur, longueur, prix FROM product WHERE CONCAT(titre, description, coeur, bois) LIKE "%' . $recherche . '%" ORDER BY id DESC');
     }
 }
 ?>
@@ -33,7 +33,7 @@ if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
     <img src="baguettes/<?= $p['image'] ?>">
     <div class="detail">
         <h3><?= $p['titre'] ?></h3>
-        <br> <?= $p['description'] ?> 
+        <br> <?= $p['description'] ?>
         <br>
         <br><em><strong>Bois :</strong> <?= $p['bois'] ?></em>
         <br><em><strong>Coeur :</strong> <?= $p['coeur'] ?></em>

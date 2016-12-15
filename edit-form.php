@@ -22,6 +22,9 @@ if(false == $row = $stmt->fetch(PDO::FETCH_ASSOC)){
 ?>
 
 <h1 style="color: #333;">Editez votre formulaire</h1>
+
+<div class="ajouter">
+<p><a href="admin.php" class="button">Retourner à l'accueil</a></p> <br>
 <form action="edit.php" method="post" enctype="multipart/form-data">
 
     <input type="hidden" name="id" value="<?=$row['id']?>">
@@ -46,5 +49,6 @@ if(false == $row = $stmt->fetch(PDO::FETCH_ASSOC)){
     <input type="submit" value="Mettre à jour!" />
 
 </form>
+</div>
 
 <?php   require 'footer.php'; ?>
