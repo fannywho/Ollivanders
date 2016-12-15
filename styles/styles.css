@@ -125,7 +125,7 @@ header nav.nav-header ul li a {
 
 main {
     font-family: 'Alegreya', serif;
-    background: #bbb;
+    background: #eee;
     width: 100%;
     margin: 0 auto;
 }
@@ -231,6 +231,13 @@ section.info-pratique div{
     display: inline-block;
     padding: 20px;
     box-sizing: border-box;
+}
+
+.eshop li:hover {
+    -moz-box-shadow: 5px 5px 5px #656565;
+    -webkit-box-shadow: 5px 5px 5px #656565;
+    -o-box-shadow: 5px 5px 5px #656565;
+    box-shadow: 5px 5px 5px #656565;
 }
 
 .eshop h3 {
@@ -485,13 +492,45 @@ section.panel-admin h1 {
     color: #000;
 }
 
+.panel-admin ul {
+    list-style-type: none;
+    width: 100%;
+    margin-top: 50px;
+    padding-bottom: 20px;
+}
+
+.panel-admin ul li {
+    text-align: center;
+}
+
+.panel-admin ul li:nth-child(2n) {
+    background: #ccc;
+}
+
+.panel-admin ul li:nth-child(2n+1) {
+    background: #ddd;
+}
+
+.panel-admin form {
+    display: inline-block;
+}
+
 div.admin-button {
     text-align: center;
-    width: 50%;
+    width: 100%;
+}
+.button {
+    padding: 5px 5px;
+    background: #000;
+    color: #fff;
+    border: 0;
 }
 
 .ajouter {
-    margin: 0 auto;
-    background: pink;
+    text-align: center;
+    padding-bottom: 20px;
 }
 
+.ajouter form p {
+    margin-bottom: 15px;
+}

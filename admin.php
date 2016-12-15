@@ -39,40 +39,30 @@ if (isset($_GET['confirm_not']) AND !empty($_GET['confirm_not'])) {
 
 
 ?>
-<style>
-    li {
-        list-style-type: none;
-    }
-    a {
-        text-decoration: none;
-        color: black;
-    }
-    
-    h1{
-        color: #333;
-    }
-</style>
+    <section class="panel-admin">
+        <h1>Page d'administration</h1>
 
-    <h1>Page d'administration</h1>
+        <div class="admin-button">
+            <a href="update.php" class="button">Ajouter un nouveau produit</a>
+            <a href="eshop.php" class="button">Retour à la Boutique</a>
+        </div>
+                <ul>
+                <?php while($p = $products->fetch()) { ?>
+                    <li><?= $p['titre'] ?> 
+                        <img src="baguettes/<?= $p['image']; ?>" width="5%" />  
+                        Prix : <?= $p['prix'] ?>  
+                        <?= $p['confirm'] ?> 
+                        <a href="admin.php?supprime=<?= $p['id'] ?>">Supprimer</a>
+                        <a href="admin.php?confirm=<?= $p['id']?>">Rendre visible</a>/<a href="admin.php?confirm_not=<?= $p['id']?>">Rendre invisible</a>
 
-    <a href="update.php">Ajouter un nouveau produit</a><br /><br /><br />
-
-    <a href="eshop.php">Boutique</a>
-
-            <?php while($p = $products->fetch()) { ?>
-                <li><?= $p['titre'] ?> <img src="baguettes/<?= $p['image']; ?>" width="5%" />  <?= $p['prix'] ?>  <?= $p['confirm'] ?> - <a href="admin.php?supprime=<?= $p['id'] ?>">Supprimer</a>-
-                    <a href="admin.php?confirm=<?= $p['id']?>">Visible</a>-<a href="admin.php?confirm_not=<?= $p['id']?>">Pas visible</a>:
-
-                    <form action="edit-form.php" method="post">
-
-                        <input type="hidden" name="id" value="<?=$p['id']?>">
-
-                        <input type="submit" value="Modifier">
-
-                    </form>
-                </li>
-
+                        <form action="edit-form.php" method="post">
+                            <input type="hidden" name="id" value="<?=$p['id']?>">
+                            <input type="submit" value="Modifier">
+                        </form>
+                    </li>
     <?php } ?>
+    </ul>
+        </section>
 
 
 

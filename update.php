@@ -72,36 +72,24 @@ if (isset($_POST['titre']) && ($_POST['description']) && ($_POST['bois']) && ($_
 </style>
 <h1>Ajouter votre produit</h1>
 
-<a href="index.php">Accueil</a><br /><br />
+<div class="ajouter">
+
+<p><a href="admin.php" class="button">Retourner à l'accueil</a></p> <br>
 
 <form action="update.php" method="post"  enctype="multipart/form-data">
 
-    <input type="text" name="titre" />
-    <label>Titre</label><br /><br />
+    <p><label for="titre">Titre</label> <br> <input type="text" name="titre" /></p>
+    <p><label for="description">Description</label> <br> <input type="text" name="description" /></p>
+    <p><label for="bois">Bois</label> <br> <input type="text"  name="bois"/></p>
+    <p><label for="coeur">Coeur</label> <br> <input type="text"  name="coeur"/></p>
+    <p><label for="longueur">Longueur</label> <br> <input type="text"  name="longueur"/></p>
+    <p><label for="prix">Prix</label> <br> <input type="text" name="prix"/>
+    <p> <input type="file" name="fichier"/></p>
 
-
-
-    <input type="text" name="description" />
-    <label>Description</label><br /><br />
-
-    <input type="text"  name="bois"/>
-    <label>Bois</label><br /><br />
-
-    <input type="text"  name="coeur"/>
-    <label>Coeur</label><br /><br />
-
-    <input type="text"  name="longueur"/>
-    <label>Longueur</label><br /><br />
-
-    <input type="text" name="prix"/>
-    <label>Prix</label><br /><br />
-
-    <input type="file" name="fichier"/><br/><br />
-
-    <button type="submit" name="upload">Envoyer</button>
+    <p><button type="submit" name="upload">Envoyer</button></p>
 
 </form>
-
+</div>
 
 <?php require 'footer.php'; ?>
 
